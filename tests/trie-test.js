@@ -95,6 +95,7 @@ describe('Trie', () => {
       expect(trie.suggest('piz')).to.deep.equal([ 'pize', 'pizza', 'pizzeria', 'pizzicato', 'pizzle' ]);
     });
   });
+  
   describe('select', () => {
     it('should prioritize ', () => {
       trie.populate(dictionary);
@@ -105,6 +106,7 @@ describe('Trie', () => {
       expect(trie.suggest('piz')).to.deep.equal([ 'pizzeria', 'pize', 'pizza', 'pizzicato', 'pizzle' ]);
     });
   });
+  
   describe('delete', () => {
     it('should delete the word ', () => {
       trie.populate(dictionary);
