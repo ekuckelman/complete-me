@@ -41,8 +41,9 @@ describe('Trie', () => {
       trie.insert('catalog');
       expect(Object.keys(trie.children)).to.deep.equal(['t', 'p', 'c', 'z', 'd' ])
       expect(trie.wordCounter).to.equal(6)
-    })   
-  })
+    });  
+  });
+
   describe('Suggest', () => {
    it('should suggest a word based on a prefix', () => {
      trie.insert('doggo');
@@ -80,24 +81,36 @@ describe('Trie', () => {
     it('Should suggest words from the dictionary', () =>{
       trie.populate(dictionary);
       expect(trie.suggest('piz')).to.deep.equal(['pize', 'pizza', 'pizzeria', 'pizzicato', 'pizzle'])
-    })
-  })
+    });
+  });
   describe('Select', () => {
-    it('Should should increase its popularity when it is selected', function() {
+    it('should increase the popularity of a word each time it gets searched', () =>{
+      trie.populate(dictionary);
+      expect(trie.children['t'].children['w'].children['o'].popularity).to.equal(0);
+      trie.select('two');
+      expect(trie.children['t'].children['w'].children['o'].popularity).to.equal(1);
+    });
+
+    it('Should move popular words to the beginning of the array', () => {
       trie.populate(dictionary);
       expect(trie.suggest('piz')).to.deep.equal(['pize', 'pizza', 'pizzeria', 'pizzicato', 'pizzle']);
       trie.select('pizzeria');
        expect(trie.suggest('piz')).to.deep.equal(['pizzeria', 'pize', 'pizza', 'pizzicato', 'pizzle'])
-      
-    })
-  })
+    });
+  });
   describe('delete', () => {
-    it('Should should increase its popularity when it is delete', function(){
+    it('Should should increase its popularity when it is delete', () => {
       trie.populate(dictionary);
       expect(trie.suggest('piz')).to.deep.equal(['pize', 'pizza', 'pizzeria', 'pizzicato', 'pizzle']);
       trie.delete('pizzeria');
-       expect(trie.suggest('piz')).to.deep.equal(['pize', 'pizza', 'pizzicato', 'pizzle'])
+       expect(trie.suggest('piz')).to.deep.equal(['pize', 'pizza', 'pizzicato', 'pizzle']);
+    });
+    it('Should decrement the word count', () => {
+      trie.insert('pizza');
+      expect(trie.wordCounter).to.equal(1)
       
-    })
-  })
+      trie.delete('pizza');
+      expect(trie.wordCounter).to.equal(0);
+    });
+  });
 })

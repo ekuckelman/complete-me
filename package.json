@@ -1,5 +1,5 @@
 {
-  "name": "TDD",
+  "name": "@ekuckelman/complete-me",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -23,5 +23,8 @@
     "eslint": "^4.9.0",
     "mocha": "^3.4.2",
     "webpack": "^3.3.0"
+  },
+  "dependencies": {
+    "TDD": "git+https://github.com/ekuckelman/complete-me.git"
   }
 }
