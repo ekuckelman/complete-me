@@ -20,6 +20,13 @@ describe('Trie', () => {
     expect(trie.children).to.deep.equal({});
   })
   describe('Insert', () => {
+    it('should not increment count on duplicate words', () => {
+      trie.insert('tacocat');
+      trie.insert('tacocat');
+
+      expect(trie.wordCounter).to.equal(1);
+    })
+
     it('Should be able to increment the wordCounter', () => {
       expect(trie.wordCounter).to.equal(0)
       
@@ -60,16 +67,18 @@ describe('Trie', () => {
      trie.insert('piazza');
      trie.insert('tomato');
      let suggestions = trie.suggest('do');
-     expect(suggestions.some(current => current === 'doggo')).to.be.true
-     expect(suggestions.some(current => current === 'dog')).to.be.true
-     expect(suggestions.some(current => current === 'doggy')).to.be.true
-     expect(suggestions.some(current => current === 'doggoneprefixtries')).to.be.true
+     expect(suggestions.some(current => current === 'doggo')).to.be.true;
+     expect(suggestions.some(current => current === 'dog')).to.be.true;
+     expect(suggestions.some(current => current === 'doggy')).to.be.true;
+     expect(suggestions.some(current => current === 'doggoneprefixtries')).to.be.true;
+     expect(suggestions.some(current => current === 'pizza')).to.be.false;
      let options = trie.suggest('pi');
-     expect(options.some(current => current === 'pizza')).to.be.true
-     expect(options.some(current => current === 'piazza')).to.be.true
-     expect(options.some(current => current === 'piano')).to.be.true
+     expect(options.some(current => current === 'pizza')).to.be.true;
+     expect(options.some(current => current === 'piazza')).to.be.true;
+     expect(options.some(current => current === 'piano')).to.be.true;
+     expect(options.some(current => current === 'doggo')).to.be.false;
      let tWord = trie.suggest('to');
-     expect(tWord.some(current => current === 'tomato')).to.be.true
+     expect(tWord.some(current => current === 'tomato')).to.be.true;
    })
  })
   describe('POPULATE', () => {

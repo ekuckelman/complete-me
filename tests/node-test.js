@@ -6,14 +6,14 @@ describe('NODE', () => {
 
   beforeEach(() => {
     node = new Node('pizza')
-  })
+  });
 
   it('should exist', () => {
     expect(node).to.exist;
   })
 
   it('should be able to store child nodes', () => {
-
+    expect(node.children).to.deep.equal({});
   });
 
 })
