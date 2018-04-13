@@ -20,6 +20,10 @@ describe('Trie', () => {
     expect(trie.children).to.deep.equal({});
   })
   describe('Insert', () => {
+    it('should exist',() => {
+      expect(trie.insert).to.exist;
+    })
+
     it('should not increment count on duplicate words', () => {
       trie.insert('tacocat');
       trie.insert('tacocat');
