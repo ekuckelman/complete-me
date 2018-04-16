@@ -1,9 +1,10 @@
 {
-  "name": "@ekuckelman/complete-me",
+  "name": "@emkuck/complete-me",
   "version": "1.0.0",
-  "description": "",
+  "description": "Autocomplete from scratch in JS",
   "main": "index.js",
   "directories": {
+    "lib": "lib",
     "test": "tests"
   },
   "scripts": {
@@ -11,7 +12,7 @@
     "eslint": "./node_modules/eslint/bin/eslint.js ./lib/*.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Emily Kuckelman",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.22.2",
@@ -26,5 +27,13 @@
   },
   "dependencies": {
     "TDD": "git+https://github.com/ekuckelman/complete-me.git"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ekuckelman/complete-me.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ekuckelman/complete-me/issues"
+  },
+  "homepage": "https://github.com/ekuckelman/complete-me#readme"
 }

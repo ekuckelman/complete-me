@@ -1,6 +1,13 @@
-import Node from './Node';
+class Node {
+  constructor(data, completeWord = false) {
+    this.data = data;
+    this.completeWord = completeWord;
+    this.children = {};
+    this.popularity = 0;
+  }
+}
 
-export default class Trie {
+class Trie {
   constructor () {
     this.wordCounter = 0;
     this.children = {}; 
@@ -95,3 +102,5 @@ export default class Trie {
     this.wordCounter--;
   }
 }
+
+module.exports = Trie;
