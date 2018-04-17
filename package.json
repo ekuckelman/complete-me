@@ -25,9 +25,6 @@
     "mocha": "^3.4.2",
     "webpack": "^3.3.0"
   },
-  "dependencies": {
-    "TDD": "git+https://github.com/ekuckelman/complete-me.git"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ekuckelman/complete-me.git"
