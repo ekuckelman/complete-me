@@ -1,6 +1,6 @@
 {
   "name": "@emkuck/complete-me",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Autocomplete from scratch in JS",
   "main": "index.js",
   "directories": {
